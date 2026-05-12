@@ -165,7 +165,7 @@ python src/train_model.py
 The trained model will be saved in:
 
 ```text
-model/mobilenetv2_model.h5
+model/mobilenetv2_model.keras
 ```
 
 ---
@@ -205,7 +205,7 @@ cd app
 Run the app:
 
 ```bash
-streamlit run streamlit_app.py
+streamlit run streamlit.py
 ```
 
 ---
@@ -249,7 +249,7 @@ The application provides:
 
 This project can be deployed for free using:
 
-* [Streamlit Community Cloud](https://streamlit.io/cloud?utm_source=chatgpt.com)
+* [Streamlit Community Cloud](https://ai-vs-real-image-project-lygnzjpmotygwerwljhiz6.streamlit.app/)
 
 ---
 
