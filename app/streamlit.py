@@ -147,8 +147,8 @@ with left_col:
     <div class="custom-card">
         <h3>📤 Upload Image</h3>
         <p>
-            Upload JPG or PNG image to classify whether
-            the image is AI-generated or real-world.
+            Upload image to classify the image 
+            is AI-generated or real-world.
         </p>
     """, unsafe_allow_html=True)
 
