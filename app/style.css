@@ -16,7 +16,7 @@
 
     --bg: #f5f7fb;
 
-    --card: rgba(255,255,255,0.88);
+    --card: rgba(255,255,255,0.92);
 
     --text: #111827;
     --text-secondary: #6b7280;
@@ -24,7 +24,7 @@
     --border: #dbe4f0;
 
     --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
-    --shadow-md: 0 8px 25px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 25px rgba(0,0,0,0.08);
 
     --radius-xl: 30px;
     --radius-lg: 24px;
@@ -43,6 +43,20 @@ body,
     color: var(--text);
 }
 
+/* FORCE TEXT VISIBILITY */
+
+body,
+p,
+span,
+label,
+small,
+div {
+
+    color: var(--text);
+}
+
+/* Background */
+
 .stApp {
 
     background: linear-gradient(
@@ -52,7 +66,7 @@ body,
     );
 }
 
-/* Hide Streamlit UI */
+/* Hide Streamlit default UI */
 
 #MainMenu,
 header,
@@ -84,19 +98,23 @@ footer {
 
 h1 {
 
-    font-size: 3.5rem !important;
+    font-size: 3.2rem !important;
 
     font-weight: 800 !important;
 
     letter-spacing: -1px;
 
     margin-bottom: 10px;
+
+    color: var(--text);
 }
 
 h2 {
 
     font-size: 2rem !important;
     font-weight: 700 !important;
+
+    color: var(--text);
 }
 
 h3 {
@@ -116,11 +134,11 @@ p {
 
     line-height: 1.7;
 
-    font-size: 16px;
+    font-size: 15px;
 }
 
 /* =========================================================
-   GRADIENT TITLE
+   GRADIENT TEXT
 ========================================================= */
 
 .gradient-text {
@@ -147,7 +165,7 @@ p {
 
     backdrop-filter: blur(12px);
 
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.5);
 
     border-radius: var(--radius-xl);
 
@@ -165,50 +183,6 @@ p {
     transform: translateY(-4px);
 
     box-shadow: var(--shadow-md);
-}
-
-/* =========================================
-   FIX FILE UPLOADER INSIDE CARD
-========================================= */
-
-.custom-card {
-
-    padding-bottom: 10px;
-}
-
-/* Remove Streamlit extra spacing */
-
-[data-testid="stFileUploader"] {
-
-    margin-top: 15px;
-
-    border-radius: 18px;
-
-    background: #f8fafc;
-
-    border: 2px dashed #cbd5e1;
-
-    padding: 20px;
-}
-
-/* Remove nested box */
-
-[data-testid="stFileUploader"] section {
-
-    padding: 0 !important;
-
-    border: none !important;
-
-    background: transparent !important;
-}
-
-/* Remove another wrapper */
-
-[data-testid="stFileUploaderDropzone"] {
-
-    background: transparent !important;
-
-    border: none !important;
 }
 
 /* =========================================================
@@ -239,19 +213,24 @@ p {
    FILE UPLOADER
 ========================================================= */
 
+.custom-card {
+
+    padding-bottom: 10px;
+}
+
 [data-testid="stFileUploader"] {
+
+    margin-top: 15px;
+
+    border-radius: 20px;
 
     background: #f8fafc;
 
     border: 2px dashed #cbd5e1;
 
-    border-radius: 22px;
-
     padding: 20px;
 
-    margin-top: 20px;
-
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 [data-testid="stFileUploader"]:hover {
@@ -261,22 +240,39 @@ p {
     background: white;
 }
 
-/* Remove extra white wrapper */
+/* Remove extra wrapper */
 
-[data-testid="stFileUploader"] section {
-
-    padding: 0 !important;
+[data-testid="stFileUploader"] section,
+[data-testid="stFileUploaderDropzone"] {
 
     background: transparent !important;
 
     border: none !important;
+
+    padding: 0 !important;
 }
 
 /* Upload text */
 
-[data-testid="stFileUploader"] small {
+[data-testid="stFileUploader"] small,
+[data-testid="stFileUploader"] span {
 
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
+}
+
+/* Browse files button */
+
+[data-testid="stFileUploader"] button {
+
+    background: #111827 !important;
+
+    color: white !important;
+
+    border-radius: 12px !important;
+
+    border: none !important;
+
+    font-weight: 600 !important;
 }
 
 /* =========================================================
@@ -295,9 +291,9 @@ p {
 
     font-size: 16px;
 
-    font-weight: 600;
+    font-weight: 700;
 
-    color: white;
+    color: white !important;
 
     background: linear-gradient(
         135deg,
@@ -362,23 +358,6 @@ p {
 img {
 
     border-radius: 24px;
-
-    box-shadow: var(--shadow-sm);
-}
-
-/* =========================================================
-   METRIC COMPONENT
-========================================================= */
-
-[data-testid="metric-container"] {
-
-    background: rgba(255,255,255,0.85);
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    border: 1px solid rgba(255,255,255,0.4);
 
     box-shadow: var(--shadow-sm);
 }
@@ -454,7 +433,7 @@ hr {
 
     h1 {
 
-        font-size: 2.3rem !important;
+        font-size: 2.2rem !important;
     }
 
     .metric-card,

@@ -54,8 +54,8 @@ IMG_SIZE = 224
 # ======================================================
 
 st.markdown("""
-<h1>
-AI vs Real Image Detector
+<h1 class="gradient-text">
+    AI vs Real Image Detector
 </h1>
 """, unsafe_allow_html=True)
 
@@ -146,13 +146,14 @@ with left_col:
     st.markdown("""
     <div class="custom-card">
         <h3>📤 Upload Image</h3>
-        <p> Upload JPG or PNG image to classify whether
+        <p>
+            Upload JPG or PNG image to classify whether
             the image is AI-generated or real-world.
         </p>
     """, unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader(
-        "",
+        "Upload Image",
         type=["jpg", "jpeg", "png"],
         label_visibility="collapsed"
     )
@@ -173,7 +174,6 @@ with left_col:
 
         st.image(
             image,
-            caption="Uploaded Image",
             use_container_width=True
         )
 
@@ -186,7 +186,8 @@ with right_col:
     st.markdown("""
     <div class="result-box">
         <h3>🧠 Prediction Result</h3>
-        <p> AI prediction and confidence score
+        <p>
+            AI prediction and confidence score
             will appear here.
         </p>
     </div>
@@ -240,6 +241,8 @@ with right_col:
             # RESULT BADGE
             # ==========================================
 
+            st.markdown("<br>", unsafe_allow_html=True)
+
             if prediction > 0.5:
 
                 st.markdown("""
@@ -252,20 +255,42 @@ with right_col:
 
                 st.markdown("""
                 <div class="ai-badge">
-                    ⚠ AI GENERATED IMAGE
+                    ⚠️ AI GENERATED IMAGE
                 </div>
                 """, unsafe_allow_html=True)
 
             st.markdown("<br>", unsafe_allow_html=True)
 
             # ==========================================
-            # METRIC
+            # CONFIDENCE CARD
             # ==========================================
 
-            st.metric(
-                label="Confidence Score",
-                value=f"{confidence:.2%}"
-            )
+            st.markdown(f"""
+            <div class="result-box">
+
+                <h3 style="
+                    margin-bottom:10px;
+                ">
+                    Confidence Score
+                </h3>
+
+                <div style="
+                    font-size:42px;
+                    font-weight:800;
+                    color:#2563eb;
+                    margin-bottom:10px;
+                ">
+                    {confidence:.2%}
+                </div>
+
+                <p style="
+                    margin-bottom:15px;
+                ">
+                    Model confidence level based on prediction.
+                </p>
+
+            </div>
+            """, unsafe_allow_html=True)
 
             # ==========================================
             # PROGRESS BAR
@@ -286,9 +311,12 @@ with right_col:
                     color:#6b7280;
                     margin-top:10px;
                     font-size:15px;
+                    font-weight:500;
                 ">
                     Model confidence:
-                    <b>{confidence:.2%}</b>
+                    <b style="color:#111827;">
+                        {confidence:.2%}
+                    </b>
                 </p>
                 """,
                 unsafe_allow_html=True
@@ -296,9 +324,18 @@ with right_col:
 
     else:
 
-        st.info(
-            "Upload an image to start prediction."
-        )
+        st.markdown("""
+        <div class="result-box">
+            <p style="
+                text-align:center;
+                color:#6b7280;
+                font-size:16px;
+                margin:0;
+            ">
+                Upload an image to start prediction.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ======================================================
 # FOOTER
